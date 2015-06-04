@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 import unittest
 import copy
 import time
@@ -87,6 +89,10 @@ class TimeUUIDTest(unittest.TestCase):
             
         with self.assertRaises(TypeError):
             testObj.timestamp = 1
+            
+    def testHex(self):
+        testObj = timeUUID.TimeUUID()
+        self.assertEqual(len(testObj.hex), 32)
 
     def testTime(self):
         timestamp = time.time()
@@ -139,7 +145,9 @@ class TimeUUIDTest(unittest.TestCase):
             ids[str(id)] = True
         
         self.assertEqual(len(ids.keys()), n)
-        
+    
+if __name__ == '__main__':
+    unittest.main()
             
 
         

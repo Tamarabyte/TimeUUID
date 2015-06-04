@@ -10,7 +10,7 @@ import os
 
 setup(
     name='TimeUUID',
-    version='0.1',
+    version='0.2',
     url='https://github.com/Tamarabyte/TimeUUID',
     license='MIT',
     description='Sequentially sortable, time-based UUIDs',

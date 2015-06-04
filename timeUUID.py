@@ -86,3 +86,7 @@ class TimeUUID():
     def datetime(self):
         return datetime.datetime.fromtimestamp(self.timestamp)
         
+    @property
+    def hex(self):
+        return '%032x' % self.int
+        
