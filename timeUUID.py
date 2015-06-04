@@ -16,7 +16,10 @@ class TimeUUID():
             self.__dict__['timestamp'] = (self.int >> 64) * 100 / 1e9
             return
         
-        if not timestamp:
+        if timestamp is not None:
+            if timestamp < 0:
+                raise ValueError('Timestamp out of range')
+        else:
             timestamp = time.time()
             
         nanoseconds = int(timestamp * 1e9)

@@ -17,6 +17,10 @@ class TimeUUIDTest(unittest.TestCase):
         # test intializing with timestamp
         timestamp = time.time()
         testObj2 = timeUUID.TimeUUID(timestamp=timestamp)
+        
+        # test initializing with out of range timestamp
+        with self.assertRaises(ValueError):
+            testObjHex3 = timeUUID.TimeUUID(timestamp=-1)
 
     def testStr(self):
         testObj = timeUUID.TimeUUID()
@@ -98,11 +102,14 @@ class TimeUUIDTest(unittest.TestCase):
         timestamp = time.time()
         testObj = timeUUID.TimeUUID()
         testObj2 = timeUUID.TimeUUID(timestamp = timestamp)
+        testObj3 = timeUUID.TimeUUID(timestamp = 0)
 
         # Equal with 4 decimal places
         self.assertAlmostEqual(testObj.timestamp, timestamp, places=4)
         # Due to rounding error this could be off by 1 decimal place
         self.assertAlmostEqual(testObj.timestamp, timestamp, places=1)
+        # Assert that our timestamp of 0 is valid
+        self.assertEqual(testObj3.timestamp, 0)
         
     def testDate(self):
         testObj = timeUUID.TimeUUID()
