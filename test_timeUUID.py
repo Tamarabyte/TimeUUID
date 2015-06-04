@@ -5,6 +5,7 @@ import copy
 import time
 import datetime
 import random
+import uuid
 
 import timeUUID
 
@@ -152,6 +153,10 @@ class TimeUUIDTest(unittest.TestCase):
             ids[str(id)] = True
         
         self.assertEqual(len(ids.keys()), n)
+        
+    def testValidUUIDFormat(self):
+        testObj = timeUUID.TimeUUID()
+        uuid.UUID(hex=testObj.hex)
     
 if __name__ == '__main__':
     unittest.main()
