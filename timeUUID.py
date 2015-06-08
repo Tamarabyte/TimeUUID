@@ -80,6 +80,9 @@ class TimeUUID():
         hex = '%032x' % self.int
         return '%s-%s-%s-%s-%s' % (
             hex[:8], hex[8:12], hex[12:16], hex[16:20], hex[20:])
+            
+    def __hash__(self):
+        return hash(self.int)
 
     @property
     def time(self):

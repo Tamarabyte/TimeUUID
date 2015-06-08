@@ -157,6 +157,11 @@ class TimeUUIDTest(unittest.TestCase):
     def testValidUUIDFormat(self):
         testObj = timeUUID.TimeUUID()
         uuid.UUID(hex=testObj.hex)
+        
+    def testHash(self):
+        testObj = timeUUID.TimeUUID()
+        testDict = {}
+        testDict[testObj] = testObj
     
 if __name__ == '__main__':
     unittest.main()
