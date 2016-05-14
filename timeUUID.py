@@ -3,7 +3,7 @@ import datetime
 
 class TimeUUID():
 
-    def __init__(self, hex=None, timestamp=None, timedelta):
+    def __init__(self, hex=None, timestamp=None, timedelta=None):
         if hex is not None:
             
             if timestamp is not None:
