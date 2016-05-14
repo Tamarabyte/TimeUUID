@@ -3,7 +3,7 @@ import datetime
 
 class TimeUUID():
 
-    def __init__(self, hex=None, timestamp=None):
+    def __init__(self, hex=None, timestamp=None, timedelta):
         if hex is not None:
             
             if timestamp is not None:
@@ -19,6 +19,8 @@ class TimeUUID():
         if timestamp is not None:
             if timestamp < 0:
                 raise ValueError('Timestamp out of range')
+        elif isinstance(timedelta, datetime.timedelta):
+            timestamp = (datetime.datetime.now() - timedelta).timestamp()
         else:
             timestamp = time.time()
             
