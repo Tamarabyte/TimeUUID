@@ -11,7 +11,7 @@ import os
 setup(
     name='TimeUUID',
     version='0.2',
-    url='https://github.com/Tamarabyte/TimeUUID',
+    url='https://github.com/tamara-bain/TimeUUID',
     license='MIT',
     description='Sequentially sortable, time-based UUIDs',
 
